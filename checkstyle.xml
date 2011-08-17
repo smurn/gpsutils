@@ -44,7 +44,7 @@
     <!-- Checks that each Java package has a Javadoc file used for commenting. -->
     <!-- See http://checkstyle.sf.net/config_javadoc.html#JavadocPackage       -->
     <module name="JavadocPackage">
-      <property name="allowLegacy" value="true"/>
+        <property name="allowLegacy" value="true"/>
     </module>
 
     <!-- Checks whether files end with a new line.                        -->
@@ -64,12 +64,6 @@
         <property name="eachLine" value="true"/>
     </module>
 
-    <module name="RegexpSingleline">
-        <!-- \s matches whitespace character, $ matches end of line. -->
-        <property name="format" value="\s+$"/>
-        <property name="message" value="Line has trailing spaces."/>
-    </module>
-
     <module name="TreeWalker">
 
         <property name="cacheFile" value="${checkstyle.cache.file}"/>
@@ -80,7 +74,9 @@
             <property name="allowUndeclaredRTE" value="true"/>
         </module>
         <module name="JavadocType"/>
-        <module name="JavadocVariable"/>
+        <module name="JavadocVariable">
+            <property name="excludeScope" value="private" />
+        </module>
         <module name="JavadocStyle"/>
 
 
@@ -161,7 +157,10 @@
         <module name="DoubleCheckedLocking"/>    <!-- MY FAVOURITE -->
         <module name="EmptyStatement"/>
         <module name="EqualsHashCode"/>
-        <module name="HiddenField"/>
+        <module name="HiddenField">
+            <property name="ignoreConstructorParameter" value="true" />
+            <property name="ignoreSetter" value="true" />
+        </module>
         <module name="IllegalInstantiation"/>
         <module name="InnerAssignment"/>
         <module name="MagicNumber"/>
