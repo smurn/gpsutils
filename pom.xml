@@ -38,6 +38,8 @@
     
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <netbeans.hint.license>apache20</netbeans.hint.license>
+        <netbeans.checkstyle.format>true</netbeans.checkstyle.format>
     </properties>
   
     <build>
@@ -72,6 +74,14 @@
                             <groupId>org.codehaus.mojo</groupId>
                             <artifactId>cobertura-maven-plugin</artifactId>
                             <version>2.5.1</version>
+                        </plugin>
+                        <plugin>
+                            <groupId>org.apache.maven.plugins</groupId>
+                            <artifactId>maven-checkstyle-plugin</artifactId>
+                            <version>2.7</version>
+                            <configuration>
+                                <configLocation>checkstyle.xml</configLocation>
+                            </configuration>
                         </plugin>
                     </reportPlugins>
                 </configuration>
